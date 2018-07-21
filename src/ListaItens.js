@@ -1,16 +1,15 @@
 import React, {Component} from 'react'
-import {Text, StyleSheet} from 'react-native'
+import {Text, View} from 'react-native'
+import Itens from './Itens'
 
 export default class ListaItens extends Component {
   render(){
     return (
-      <Text style={Estilo.teste}>Teste de Lista Itens</Text>
+        <View>
+            <Itens />
+            <Itens />
+            <Itens />
+        </View>
     )
   }
 }
-
-const Estilo = StyleSheet.create({
-    teste: {
-      fontSize: 50
-    }
-  })
