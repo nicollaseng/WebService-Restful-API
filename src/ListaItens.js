@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text, View} from 'react-native'
+import {Text, ScrollView} from 'react-native'
 import Itens from './Itens'
 import axios from 'axios'
 
@@ -12,15 +12,15 @@ export default class ListaItens extends Component {
     }
   }
   componentWillMount(){
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    axios.get('https://jsonplaceholder.typicode.com/photos')
     .then(response => this.setState({listaItens: response.data}))
     .catch(() => console.log('Erro'))
   }
   render(){
    return(
-     <View>
-       {this.state.listaItens.map(item => (<Text>{item.email}</Text>))}
-    </View>
+     <ScrollView>
+       {this.state.listaItens.map(item => (<Itens key={item.id} anuncio={item}/>))}
+    </ScrollView>
    )
   }
 }
